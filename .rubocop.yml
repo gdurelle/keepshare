@@ -1,0 +1,151 @@
+AllCops:
+  Exclude:
+    - 'bin/**/*'
+    - 'config/**/*'
+    - 'coverage/**/*'
+    - 'db/**/*'
+    - 'log/*'
+    - 'public/**/*'
+    - 'tmp/**/*'
+    - 'vendor/**/*'
+    - 'Guardfile'
+    - 'test/test_helper.rb'
+  RunRailsCops: true
+
+LineLength:
+  Max: 160
+  Severity: error
+
+MethodLength:
+  Max: 40
+  Severity: error
+
+TrailingBlankLines:
+  Severity: error
+
+EndOfLine:
+  Severity: error
+
+TrailingComma:
+  EnforcedStyleForMultiline: no_comma
+  Severity: error
+
+EmptyLines:
+  Severity: error
+
+Documentation:
+  Enabled: false
+
+ClassAndModuleChildren:
+  Enabled: false
+
+DotPosition:
+  Enabled: false
+
+StringLiterals:
+  Enabled: false
+
+NumericLiterals:
+  Enabled: false
+
+AccessModifierIndentation:
+  Enabled: false
+
+EmptyLinesAroundAccessModifier:
+  Enabled: false
+
+AssignmentInCondition:
+  Enabled: false
+
+WordArray:
+  Enabled: false
+
+RedundantBegin:
+  Enabled: false
+
+RaiseArgs:
+  Enabled: false
+
+HandleExceptions:
+  Enabled: false
+
+RedundantSelf:
+  Enabled: false
+
+SignalException:
+  Enabled: false
+
+PredicateName:
+  Enabled: false
+
+BlockComments:
+  Enabled: false
+
+UnusedBlockArgument:
+  Enabled: false
+
+PercentLiteralDelimiters:
+  Enabled: false
+
+IfUnlessModifier:
+  Enabled: false
+
+AlignArray:
+  Enabled: false
+
+AlignHash:
+  Enabled: false
+
+AlignParameters:
+  Enabled: false
+
+SpaceBeforeBlockBraces:
+  Enabled: false
+
+SpaceInsideBlockBraces:
+  Enabled: false
+
+SpaceInsideHashLiteralBraces:
+  Enabled: false
+
+HashSyntax:
+  Enabled: false
+
+ParenthesesAroundCondition:
+  Enabled: false
+
+CollectionMethods:
+  Enabled: false
+
+AndOr:
+  Enabled: false
+
+RescueModifier:
+  Enabled: false
+
+ClassLength:
+  Enabled: false
+
+IndentationWidth:
+  Enabled: false
+
+EndAlignment:
+  Enabled: false
+
+CyclomaticComplexity:
+  Enabled: true
+
+AbcSize:
+  Enabled: false
+
+AccessorMethodName:
+  Enabled: false
+
+EmptyLinesAroundMethodBody:
+  Enabled: true
+
+EmptyLinesAroundClassBody:
+  Enabled: true
+
+EmptyLinesAroundModuleBody:
+  Enabled: true

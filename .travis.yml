@@ -1,0 +1,15 @@
+language: ruby
+cache: bundler
+bundler_args: --without development
+rvm:
+  - "2.2.3"
+env:
+  - DB=postgresql
+before_script:
+  - cp config/database.yml.travis config/database.yml
+  - psql -c 'create database travis_ci_test;' -U postgres
+  - bundle exec rake bower:install
+  - bundle exec rake bower:resolve
+script:
+  - bundle exec rspec
+  - bundle exec rubocop -R --config .rubocop.yml --fail-level error --force-exclusion
