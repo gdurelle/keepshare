@@ -39,8 +39,8 @@ gem 'foreman', '~> 0.78.0'
 gem "bower-rails", "~> 0.9.2"
 gem 'slim-rails', '~> 3.0.1'
 
-# gem 'sorcery', '~> 0.9.1'
-# gem 'cancancan', '~> 1.10'
+gem 'sorcery', '~> 0.9.1'
+gem 'cancancan', '~> 1.10'
 # gem 'simple_form', '~> 3.1.0'
 # gem 'draper', '~> 2.1.0'
 
