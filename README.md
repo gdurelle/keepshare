@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/gdurelle/starter_app.svg)](https://travis-ci.org/gdurelle/starter_app)
+[![Build Status](https://travis-ci.org/gdurelle/keepshare.svg)](https://travis-ci.org/gdurelle/keepshare)
 
 ## README
 
