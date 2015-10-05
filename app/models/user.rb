@@ -1,4 +1,4 @@
 class User < ActiveRecord::Base
   authenticates_with_sorcery!
-  enum roles: %i{ guest user admin }
+  enum roles: { guest: 'guest', user: 'user', admin: 'admin' }
 end
