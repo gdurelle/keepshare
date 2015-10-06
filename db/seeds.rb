@@ -5,4 +5,13 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
-User.create email: 'guest@test.com', password: 'guest'
+if Rails.env.development?
+  user = User.create email: 'guest@test.com', password: 'guest'
+  User.create email: 'user@test.com', password: 'guest', role: 'user'
+  User.create email: 'admin@test.com', password: 'guest', role: 'admin'
+
+  list = List.create name: "My List", user_id: user.id
+  Item.create list_id: list.id, content: 'Lorem ipsum'
+  Item.create list_id: list.id, content: 'dolor sit amet'
+  Item.create list_id: list.id, content: 'consectur'
+end
