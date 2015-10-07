@@ -1,5 +1,8 @@
 class User < ActiveRecord::Base
+  extend Enumerize
   authenticates_with_sorcery!
-  enum roles: { guest: 'guest', user: 'user', admin: 'admin' }
-  has_one :list
+
+  enumerize :role, in: %w(guest user admin), predicates: true
+
+  has_many :lists
 end

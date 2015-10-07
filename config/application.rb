@@ -1,9 +1,9 @@
 require File.expand_path('../boot', __FILE__)
 
-require 'rails/all'
-# require "active_record/railtie"
-# require "action_controller/railtie"
-# require "action_mailer/railtie"
+# require 'rails/all'
+require "active_record/railtie"
+require "action_controller/railtie"
+require "action_mailer/railtie"
 # require "sprockets/railtie"
 # require "rails/test_unit/railtie"
 
@@ -32,26 +32,26 @@ module KeepShare
     # config.i18n.default_locale = :fr
     # config.i18n.fallbacks = [:fr]
 
-    config.generators do |g|
-      g.template_engine :slim
-      g.test_framework :rspec, fixtures: true
-      g.fixtures_replacement :factory_girl, dir: 'spec/factories'
-      g.helper false
-      g.view_specs false
-      g.assets false
-      g.decorators false
+    config.generators do |gen|
+      gen.template_engenine :slim
+      gen.test_framework :rspec, fixtures: true
+      gen.fixtures_replacement :factory_genirl, dir: 'spec/factories'
+      gen.helper false
+      gen.view_specs false
+      gen.assets false
+      gen.decorators false
     end
 
-    # Bower asset paths
-    root.join('vendor', 'assets', 'bower_components').to_s.tap do |bower_path|
-      config.sass.load_paths << bower_path
-      config.assets.paths << bower_path
-    end
-    # Precompile Bootstrap fonts
-    config.assets.precompile << %r(bootstrap-sass/assets/fonts/bootstrap/[\w-]+\.(?:eot|svg|ttf|woff2?)$)
-    config.assets.precompile << Proc.new { |path| path =~ /font-awesome\/fonts/ and File.extname(path).in?(['.otf', '.eot', '.svg', '.ttf', '.woff']) }
+    # # Bower asset paths
+    # root.join('vendor', 'assets', 'bower_components').to_s.tap do |bower_path|
+    #   config.sass.load_paths << bower_path
+    #   config.assets.paths << bower_path
+    # end
+    # # Precompile Bootstrap fonts
+    # config.assets.precompile << %r(bootstrap-sass/assets/fonts/bootstrap/[\w-]+\.(?:eot|svg|ttf|woff2?)$)
+    # config.assets.precompile << Proc.new { |path| path =~ /font-awesome\/fonts/ and File.extname(path).in?(['.otf', '.eot', '.svg', '.ttf', '.woff']) }
 
-    # Minimum Sass number precision required by bootstrap-sass
-    ::Sass::Script::Value::Number.precision = [8, ::Sass::Script::Value::Number.precision].max
+    # # Minimum Sass number precision required by bootstrap-sass
+    # ::Sass::Script::Value::Number.precision = [8, ::Sass::Script::Value::Number.precision].max
   end
 end

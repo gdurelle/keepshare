@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   # You can have the root of your site routed with "root"
   root 'welcome#home'
 
-  resources :list, only: :index do
+  resources :lists, only: %i(index show) do
     resources :items, only: %i(index create update destroy)
   end
 

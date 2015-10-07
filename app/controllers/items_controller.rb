@@ -1,6 +1,8 @@
 class ItemsController < ApplicationController
   def index
-    items = current_user.list.items
+    list = List.where(id: params[:list_id]).first
+    head :not_found and return if list.nil?
+    items = list.items
     render json: items.as_json
   end
 

@@ -43,6 +43,7 @@ gem 'sorcery', '~> 0.9.1'
 gem 'cancancan', '~> 1.10'
 # gem 'simple_form', '~> 3.1.0'
 # gem 'draper', '~> 2.1.0'
+gem 'enumerize'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
