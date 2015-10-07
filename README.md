@@ -20,20 +20,28 @@
 
 ### GET requests
 
-```curl http://localhost:5000```
+* ```curl http://localhost:5000```
 
-=> _HTTP Basic: Access denied._
+```zsh
+HTTP Basic: Access denied.
+```
 
-```curl -u guest@test.com:guest http://localhost:5000```
+* ```curl -u guest@test.com:guest http://localhost:5000```
 
-=> _{"id":1,"email":"guest@test.com","role":"guest"}_
+```zsh
+{"id":1,"email":"guest@test.com","role":"guest"}
+```
 
-```curl -u guest@test.com:guest http://localhost:5000/lists```
+* ```curl -u guest@test.com:guest http://localhost:5000/lists```
 
-=> _[{"id":1,"name":"My List","user_id":1,"created_at":"2015-10-06T18:00:21.672Z","updated_at":"2015-10-06T18:00:21.672Z"}]_
+```zsh
+[{"id":1,"name":"My List","user_id":1,"created_at":"2015-10-06T18:00:21.672Z","updated_at":"2015-10-06T18:00:21.672Z"}]
+```
 
-```curl -u guest@test.com:guest http://localhost:5000/lists/1/items```
+* ```curl -u guest@test.com:guest http://localhost:5000/lists/1/items```
 
-=> _[{"id":1,"content":"Lorem ipsum","list_id":1,"created_at":"2015-10-06T18:00:21.680Z","updated_at":"2015-10-06T18:00:21.680Z"},{"id":2,"content":"dolor sit amet","list_id":1,"created_at":"2015-10-06T18:00:21.683Z","updated_at":"2015-10-06T18:00:21.683Z"},{"id":3,"content":"consectur","list_id":1,"created_at":"2015-10-06T18:00:21.685Z","updated_at":"2015-10-06T18:00:21.685Z"}]_
+```zsh
+[{"id":1,"content":"Lorem ipsum","list_id":1,"created_at":"2015-10-06T18:00:21.680Z","updated_at":"2015-10-06T18:00:21.680Z"},{"id":2,"content":"dolor sit amet","list_id":1,"created_at":"2015-10-06T18:00:21.683Z","updated_at":"2015-10-06T18:00:21.683Z"},{"id":3,"content":"consectur","list_id":1,"created_at":"2015-10-06T18:00:21.685Z","updated_at":"2015-10-06T18:00:21.685Z"}]
+```
 
 ### POST requests
