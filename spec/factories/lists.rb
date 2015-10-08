@@ -1,5 +1,5 @@
 FactoryGirl.define do
   factory :list do
-    name "MyString"
+    name { Faker::Lorem.word }
   end
 end
