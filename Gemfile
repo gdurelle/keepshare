@@ -40,7 +40,7 @@ gem "bower-rails", "~> 0.9.2"
 gem 'slim-rails', '~> 3.0.1'
 
 gem 'sorcery', '~> 0.9.1'
-gem 'cancancan', '~> 1.10'
+gem 'cancancan', '~> 1.13.0'
 # gem 'simple_form', '~> 3.1.0'
 # gem 'draper', '~> 2.1.0'
 gem 'enumerize'
