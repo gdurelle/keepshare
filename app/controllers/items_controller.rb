@@ -14,10 +14,15 @@ class ItemsController < ApplicationController
   end
 
   def update
-    render json: :ok
+    if @item.update_attributes content: item_params['content']
+      head :ok
+    else
+      render json: @item, status: :unprocessable_entity
+    end
   end
 
   def destroy
+    @item.destroy
     head :no_content
   end
 

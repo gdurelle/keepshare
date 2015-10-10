@@ -48,7 +48,22 @@ RSpec.describe ItemsController, type: :controller do
   end
 
   describe 'update' do
-    it 'changes the item content'
+    it 'changes the item content' do
+      expect do
+        patch :update, list_id: list.id, id: items.first.id, item: { content: 'lorem ipsum' }, format: :json
+        items.first.reload
+      end.to change(items.first, :content).to('lorem ipsum')
+      expect(response).to have_http_status(:success)
+    end
+    context 'whith bad request' do
+      it 'returns unprocessable_entity' do
+      expect do
+        patch :update, list_id: list.id, id: items.first.id, item: { content: nil }, format: :json
+        items.first.reload
+      end.not_to change(items.first, :content)
+      expect(response).to have_http_status(:unprocessable_entity)
+      end
+    end
     context 'when guest user' do
       before do
         basic_auth guest.email
@@ -61,7 +76,12 @@ RSpec.describe ItemsController, type: :controller do
   end
 
   describe 'destroy' do
-    it 'destroys the item'
+    it 'destroys the item' do
+      expect do
+        delete :destroy, list_id: list.id, id: items.first.id
+      end.to change(Item, :count).by(-1)
+      expect(response).to have_http_status(:no_content)
+    end
     context 'when guest user' do
       before do
         basic_auth guest.email
@@ -72,6 +92,16 @@ RSpec.describe ItemsController, type: :controller do
       end
     end
     context 'when admin' do
+      let(:admin) { FactoryGirl.create :user, :admin }
+      before do
+        basic_auth admin.email
+      end
+      it 'destroys the item' do
+        expect do
+          delete :destroy, list_id: list.id, id: items.first.id
+        end.to change(Item, :count).by(-1)
+        expect(response).to have_http_status(:no_content)
+      end
     end
   end
 end

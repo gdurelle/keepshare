@@ -1,6 +1,6 @@
 FactoryGirl.define do
   factory :item do
-    content "MyText"
+    content { Faker::Lorem.word }
     list_id 1
   end
 end
