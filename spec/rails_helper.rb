@@ -36,8 +36,6 @@ ActiveRecord::Migration.maintain_test_schema!
 require 'database_cleaner'
 I18n.locale = :en
 Zonebie.set_random_timezone
-require 'capybara/poltergeist'
-Capybara.javascript_driver = :poltergeist
 
 RSpec.configure do |config|
   # Remove this line if you're not using ActiveRecord or ActiveRecord fixtures
@@ -70,11 +68,7 @@ RSpec.configure do |config|
 
   config.before(:each) do
     ActionMailer::Base.deliveries.clear
-    if Capybara.current_driver == :poltergeist
-      DatabaseCleaner.strategy = :truncation
-    else
-      DatabaseCleaner.strategy = :transaction
-    end
+    DatabaseCleaner.strategy = :transaction
     DatabaseCleaner.start
   end
 
