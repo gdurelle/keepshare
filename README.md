@@ -15,15 +15,13 @@ Simple API to CRUD Lists and Items in a list.
 
 ## Usage
 
-You need a an account with email/password.
+You need a an account with email/password. (created through the ```db:seed``` task)
 
-You need to pass Basic Auth credentials on eahc requests.
+You need to pass Basic Auth credentials on each requests.
 
-Everyone can read anything.
-
-Users with user role can create, update and destroy its own lists.
-
-User with admin role can CRUD everything.
+* Everyone can read anything.
+* Users with user role can create, update and destroy its own lists.
+* User with admin role can CRUD everything.
 
 ### GET requests
 
