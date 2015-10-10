@@ -7,8 +7,8 @@ Rails.application.routes.draw do
   # You can have the root of your site routed with "root"
   root 'welcome#home'
 
-  resources :lists, only: %i(index show) do
-    resources :items, except: %i(new edit)
+  resources :lists, only: %i(index show create update destroy) do
+    resources :items, only: %i(index show create update destroy)
   end
 
   # Example of regular route:

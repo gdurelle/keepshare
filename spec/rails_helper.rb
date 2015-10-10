@@ -3,7 +3,7 @@ SimpleCov.start :rails do
   # add_group 'Decorators', 'app/decorators'
   # add_group 'Services', 'app/services'
 end
-SimpleCov.minimum_coverage 90
+SimpleCov.minimum_coverage 100
 SimpleCov.command_name 'RSpec'
 
 # This file is copied to spec/ when you run 'rails generate rspec:install'

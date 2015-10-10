@@ -31,8 +31,7 @@ RSpec.describe ItemsController, type: :controller do
     context 'when user owns list' do
       it 'creates the item' do
         post :create, list_id: list.id, item: { content: test_content }
-        answer = JSON.parse(response.body)
-        expect(answer['data']['content']).to eq(test_content)
+        expect(response).to have_http_status(:created)
       end
     end
 
