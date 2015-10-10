@@ -11,7 +11,7 @@ RSpec.describe ListsController, type: :controller do
   describe 'index' do
     it "returns user's lists" do
       get :index, format: :json
-      expect(response.body).to eq(lists.to_json)
+      expect(response.body).to eq(lists.as_json.to_json)
     end
   end
 
@@ -19,9 +19,10 @@ RSpec.describe ListsController, type: :controller do
     it "returns user's lists with its items" do
       get :show, id: lists.first.id, format: :json
       answer = JSON.parse(response.body)
-      expect(answer.keys.first).to eq('_self')
-      expect(answer.keys.last).to eq('items')
-      expect(answer.values.last).to eq([])
+      expect(answer.keys.first).to eq('data')
+      expect(answer['data'].keys.first).to eq('list')
+      expect(answer['data'].keys.last).to eq('items')
+      expect(answer['data'].values.last).to eq([])
     end
   end
 end

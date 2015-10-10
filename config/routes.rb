@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   root 'welcome#home'
 
   resources :lists, only: %i(index show) do
-    resources :items, only: %i(index create update destroy)
+    resources :items, except: %i(new edit)
   end
 
   # Example of regular route:

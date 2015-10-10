@@ -39,8 +39,9 @@ Rails.application.configure do
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true
 
-  config.action_mailer.asset_host = "http://0.0.0.0:5000"
-  config.action_mailer.default_url_options = { host: "0.0.0.0:5000" }
+  Rails.application.routes.default_url_options[:host] = '127.0.0.1:5000'
+  config.action_mailer.asset_host = "http://127.0.0.1:5000"
+  config.action_mailer.default_url_options = { host: "127.0.0.1:5000" }
 
   config.after_initialize do
     Bullet.enable = true

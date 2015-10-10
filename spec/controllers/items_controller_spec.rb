@@ -13,7 +13,16 @@ RSpec.describe ItemsController, type: :controller do
   describe 'index' do
     it "returns user's items" do
       get :index, list_id: list.id, format: :json
-      expect(response.body).to eq(items.to_json)
+      expect(response.body).to eq(items.as_json.to_json)
+    end
+  end
+
+  describe 'show' do
+    it "returns the item" do
+      get :show, list_id: list, id: items.first.id, format: :json
+      answer = JSON.parse(response.body)
+      expect(answer['data']['id']).to eq(items.first.id)
+      expect(answer['data']['content']).to eq(items.first.content)
     end
   end
 
@@ -23,7 +32,7 @@ RSpec.describe ItemsController, type: :controller do
       it 'creates the item' do
         post :create, list_id: list.id, item: { content: test_content }
         answer = JSON.parse(response.body)
-        expect(answer['content']).to eq(test_content)
+        expect(answer['data']['content']).to eq(test_content)
       end
     end
 
@@ -55,7 +64,7 @@ RSpec.describe ItemsController, type: :controller do
       end.to change(items.first, :content).to('lorem ipsum')
       expect(response).to have_http_status(:success)
     end
-    context 'whith bad request' do
+    context 'when bad request' do
       it 'returns unprocessable_entity' do
       expect do
         patch :update, list_id: list.id, id: items.first.id, item: { content: nil }, format: :json
