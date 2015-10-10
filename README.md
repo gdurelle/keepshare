@@ -15,9 +15,14 @@ Simple API to CRUD Lists and Items in a list.
 
 ## Usage
 
-You need a an account with email/password, checked through Basic Auth.
+You need a an account with email/password.
+
+You need to pass Basic Auth credentials on eahc requests.
+
 Everyone can read anything.
+
 Users with user role can create, update and destroy its own lists.
+
 User with admin role can CRUD everything.
 
 ### GET requests
