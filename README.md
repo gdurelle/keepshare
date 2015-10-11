@@ -79,7 +79,7 @@ HTTP Basic: Access denied.
 Should return an HTTP created code _(201)_
 ```zsh
 {"data":{"id":2,"name":"Groceries","user_id":2,"created_at":"2015-10-11T08:14:30.507Z","updated_at":"2015-10-11T08:14:30.507Z"},"links":{"self":"http://127.0.0.1:5000/lists/2","items":"http://127.0.0.1:5000/lists/2/items"}}
-``
+```
 
 #### Create an item
 
