@@ -1,4 +1,5 @@
-[![Build Status](https://travis-ci.org/gdurelle/keepshare.svg)](https://travis-ci.org/gdurelle/keepshare)
+[![Build Status](https://travis-ci.org/gdurelle/keepsync-api.svg?branch=develop)](https://travis-ci.org/gdurelle/keepsync-api)
+https://travis-ci.org/gdurelle/keepsync-api.svg?branch=develop
 
 Simple API to CRUD Lists and Items in a list.
 
