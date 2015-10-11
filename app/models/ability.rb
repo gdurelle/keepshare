@@ -8,14 +8,14 @@ class Ability
     when 'admin'
       can :crud, :all
     when 'user'
-      can :read, :all
+      can :read, [List, Item]
       can :create, List
       can [:update, :destroy], List, user_id: user.id
 
       can :create, Item, list: { user_id: user.id }
       can [:update, :destroy], Item, list: { user_id: user.id }
     when 'guest'
-      can :read, :all
+      can :read, [List, Item]
     end
     # Define abilities for the passed in user here. For example:
     #

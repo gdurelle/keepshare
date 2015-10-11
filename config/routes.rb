@@ -1,6 +1,4 @@
 Rails.application.routes.draw do
-  get 'welcome/home'
-
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
@@ -10,6 +8,8 @@ Rails.application.routes.draw do
   resources :lists, only: %i(index show create update destroy) do
     resources :items, only: %i(index show create update destroy)
   end
+
+  resources :users, only: %i(show create update destroy)
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
