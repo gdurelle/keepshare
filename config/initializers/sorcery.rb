@@ -51,7 +51,7 @@ Rails.application.config.sorcery.configure do |config|
   # Default: `{"application" => "Application"}`
   #
   # config.controller_to_realm_map =
-  config.controller_to_realm_map = { 'application' => 'KeepShare' }
+  config.controller_to_realm_map = { 'application' => 'KeepSyncAPI' }
 
 
   # -- activity logging --
