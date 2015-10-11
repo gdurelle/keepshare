@@ -11,8 +11,8 @@ class ListsController < ApplicationController
   end
 
   def create
-    current_user.lists.create(list_params)
-    head :created
+    list = current_user.lists.create(list_params)
+    render json: list.as_json, status: :created
   end
 
   def update

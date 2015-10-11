@@ -14,8 +14,8 @@ class ItemsController < ApplicationController
   end
 
   def create
-    @list.items.create(item_params)
-    head :created
+    item = @list.items.create(item_params)
+    render json: item.as_json, status: :created
   end
 
   def update
