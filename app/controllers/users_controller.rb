@@ -1,5 +1,7 @@
 class UsersController < ApplicationController
-  load_and_authorize_resource
+  include JsonErrorController
+
+  load_and_authorize_resource param_method: :user_params
 
   def show
     head :not_found and return if @user.nil?
@@ -7,18 +9,19 @@ class UsersController < ApplicationController
   end
 
   def create
-    user = User.create(user_params)
-    render json: user.as_json, status: :created
+    begin
+      user = User.create!(user_params)
+      render json: user.as_json, status: :created
+    rescue StandardError => e
+      render json: e.message, status: :no_content
+    end
   end
 
   def update
     if @user.update_attributes user_params
       head :ok
     else
-      render json: {
-        errors: @user.errors.full_messages.join(', '),
-        links: { self: user_url(@user.id) }
-      }, status: :unprocessable_entity
+      render_json_error
     end
   end
 

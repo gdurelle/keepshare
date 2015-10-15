@@ -2,7 +2,7 @@ class List < ActiveRecord::Base
   include Rails.application.routes.url_helpers
 
   belongs_to :user
-  has_many :items
+  has_many :items, dependent: :destroy
 
   validates :name, presence: true
 

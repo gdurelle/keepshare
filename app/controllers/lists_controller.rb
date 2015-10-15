@@ -1,5 +1,7 @@
 class ListsController < ApplicationController
-  load_and_authorize_resource
+  include JsonErrorController
+
+  load_and_authorize_resource param_method: :list_params
 
   def index
     render json: @lists.as_json
@@ -11,18 +13,19 @@ class ListsController < ApplicationController
   end
 
   def create
-    list = current_user.lists.create(list_params)
-    render json: list.as_json, status: :created
+    begin
+      list = current_user.lists.create!(list_params)
+      render json: list.as_json, status: :created
+    rescue StandardError => e
+      render json: e.message, status: :no_content
+    end
   end
 
   def update
     if @list.update_attributes name: list_params['name']
       head :ok
     else
-      render json: {
-        errors: @list.errors.full_messages.join(', '),
-        links: { self: list_url(@list.id) }
-      }, status: :unprocessable_entity
+      render_json_error
     end
   end
 

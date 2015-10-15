@@ -6,7 +6,7 @@ class User < ActiveRecord::Base
 
   enumerize :role, in: %w(guest user admin), predicates: true
 
-  has_many :lists
+  has_many :lists, dependent: :destroy
 
   validates :password, length: { minimum: 3 }, if: -> { new_record? || changes["password"] }
   validates :password, presence: true

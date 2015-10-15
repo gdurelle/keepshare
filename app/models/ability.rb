@@ -7,6 +7,7 @@ class Ability
     case user.role
     when 'admin'
       can :crud, :all
+      cannot :destroy, User, role: :admin
     when 'user'
       can :read, [List, Item]
       can :create, List

@@ -53,6 +53,13 @@ RSpec.describe ItemsController, type: :controller do
         expect(response).to have_http_status(:forbidden)
       end
     end
+
+    context 'when bad request' do
+      it 'returns no_content' do
+        post :create, list_id: list.id, item: { content: nil }
+        expect(response).to have_http_status(:no_content)
+      end
+    end
   end
 
   describe 'update' do
